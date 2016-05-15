@@ -126,7 +126,7 @@
      <number>1</number>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Score:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt; font-weight:600;&quot;&gt;Score:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="scoreNum">
@@ -161,10 +161,12 @@
      <font>
       <family>Agency FB</family>
       <pointsize>24</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;30&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="reScene">
@@ -183,7 +185,7 @@
      <pixmap resource="resources.qrc">:/pictures/reScene.png</pixmap>
     </property>
    </widget>
-   <widget class="QLabel" name="drum">
+   <widget class="QLabel" name="drum_0">
     <property name="geometry">
      <rect>
       <x>500</x>
@@ -196,19 +198,138 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="resources.qrc">:/pictures/紅鼓.png</pixmap>
+     <pixmap resource="resources.qrc">:/pictures/blue.png</pixmap>
     </property>
    </widget>
-   <zorder>background</zorder>
+   <widget class="QLabel" name="drum_1">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>90</y>
+      <width>50</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="resources.qrc">:/pictures/red.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="drum_2">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>90</y>
+      <width>50</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="resources.qrc">:/pictures/red.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="drum_3">
+    <property name="geometry">
+     <rect>
+      <x>780</x>
+      <y>90</y>
+      <width>50</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="resources.qrc">:/pictures/blue.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="drum_4">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>90</y>
+      <width>50</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="resources.qrc">:/pictures/blue.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="drum_5">
+    <property name="geometry">
+     <rect>
+      <x>900</x>
+      <y>90</y>
+      <width>50</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="resources.qrc">:/pictures/red.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="drum_6">
+    <property name="geometry">
+     <rect>
+      <x>950</x>
+      <y>90</y>
+      <width>50</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="resources.qrc">:/pictures/red.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="drum_7">
+    <property name="geometry">
+     <rect>
+      <x>1020</x>
+      <y>280</y>
+      <width>50</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="resources.qrc">:/pictures/red.png</pixmap>
+    </property>
+   </widget>
    <zorder>reScene</zorder>
-   <zorder>scoreNum</zorder>
-   <zorder>scoreText</zorder>
-   <zorder>timerNum</zorder>
-   <zorder>timerText</zorder>
    <zorder>start</zorder>
    <zorder>StartButton</zorder>
    <zorder>ExitButton</zorder>
-   <zorder>drum</zorder>
+   <zorder>background</zorder>
+   <zorder>drum_0</zorder>
+   <zorder>drum_1</zorder>
+   <zorder>drum_2</zorder>
+   <zorder>drum_3</zorder>
+   <zorder>drum_4</zorder>
+   <zorder>drum_5</zorder>
+   <zorder>drum_6</zorder>
+   <zorder>drum_7</zorder>
+   <zorder>scoreText</zorder>
+   <zorder>scoreNum</zorder>
+   <zorder>timerText</zorder>
+   <zorder>timerNum</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

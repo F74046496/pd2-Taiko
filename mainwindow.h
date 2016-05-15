@@ -5,11 +5,6 @@
 
 #include <QTimer>
 #include <QKeyEvent>
-#include <QGraphicsView>
-#include <QGraphicsScene>
-#include <QPropertyAnimation>
-#include <QGraphicsPixmapItem>
-#include <QGraphicsSimpleTextItem>
 #include <QTime>
 
 
@@ -25,7 +20,6 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    void drum();
 
 private slots:
     void on_StartButton_clicked();
@@ -34,9 +28,9 @@ private slots:
 
     void on_ExitButton_clicked();
 
-    void animaMove();
+    void drum();
 
-    void keyPressEvent(QKeyEvent * event);
+    void keyPressEvent(QKeyEvent *event);
 
 private:
     Ui::MainWindow *ui;
@@ -45,16 +39,25 @@ private:
     int score;
     int initX;
     int endX;
+    int y;
     int R;
-    int arrayX[9];
-    int graphIndex[9];
+    int size;
+    int Index[8];
+    /*int arrayX[9];
     bool correct[9];
-    QGraphicsPixmapItem *item[9];
+    QGraphicsPixmapItem *item[9];*/
 
     const int step = 1;
     //int x;
     QTimer *timer;
-    QTimer *drumTimer;
+    QTimer *drumTimer_0;
+    QTimer *drumTimer_1;
+    QTimer *drumTimer_2;
+    QTimer *drumTimer_3;
+    QTimer *drumTimer_4;
+    QTimer *drumTimer_5;
+    QTimer *drumTimer_6;
+    QTimer *drumTimer_7;
 };
 
 #endif // MAINWINDOW_H

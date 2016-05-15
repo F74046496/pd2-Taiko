@@ -3,13 +3,6 @@
 
 #include <QTimer>
 #include <QKeyEvent>
-#include <QGraphicsView>
-#include <QPropertyAnimation>
-#include <QGraphicsItem>
-#include <QGraphicsScene>
-#include <QGraphicsPixmapItem>
-#include <QGraphicsSimpleTextItem>
-
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -20,15 +13,30 @@ MainWindow::MainWindow(QWidget *parent) :
     score = 0;
     time = 0;
     initX = 500;
-    //x = 500;
     endX = -50;
-    R=0;
-    for(int i=0; i<9; i++)
+    y = 90;
+    R = 0;
+    size = 50;
+    ui->start->show();
+    ui->background->hide();
+    ui->reScene->hide();
+    ui->StartButton->show();
+    ui->ExitButton->show();
+    ui->timerText->hide();
+    ui->timerNum->hide();
+    ui->scoreText->hide();
+    ui->scoreNum->hide();
+    ui->drum_0->hide();
+    ui->drum_1->hide();
+    ui->drum_2->hide();
+    ui->drum_3->hide();
+    ui->drum_4->hide();
+    ui->drum_5->hide();
+    ui->drum_6->hide();
+    ui->drum_7->hide();
+    for(int i=0; i<8; i++)
     {
-        arrayX[i]=0;
-        graphIndex[i]=0;
-        item[i]=0;
-        correct[i]=false;
+        Index[i]=1;
     }
 }
 
@@ -48,6 +56,22 @@ void MainWindow::on_StartButton_clicked()
     ui->scoreText->show();
     ui->scoreNum->show();
     ui->reScene->hide();
+    ui->drum_0->show();
+    ui->drum_1->show();
+    ui->drum_2->show();
+    ui->drum_3->show();
+    ui->drum_4->show();
+    ui->drum_5->show();
+    ui->drum_6->show();
+    ui->drum_7->show();
+    ui->drum_0->setGeometry(initX,y,size,size);
+    ui->drum_1->setGeometry(initX,y,size,size);
+    ui->drum_2->setGeometry(initX,y,size,size);
+    ui->drum_3->setGeometry(initX,y,size,size);
+    ui->drum_4->setGeometry(initX,y,size,size);
+    ui->drum_5->setGeometry(initX,y,size,size);
+    ui->drum_6->setGeometry(initX,y,size,size);
+    ui->drum_7->setGeometry(initX,y,size,size);
 
     time = 30;
     score = 0;
@@ -77,149 +101,158 @@ void MainWindow::timer_timeout()
     if(time<0)
     {
 
+        timer->stop();
         ui->background->hide();
         ui->reScene->show();
         ui->StartButton->show();
         ui->ExitButton->show();
-        timer->stop();
-        //drumTimer->stop();
+        ui->drum_0->hide();
+        ui->drum_1->hide();
+        ui->drum_2->hide();
+        ui->drum_3->hide();
+        ui->drum_4->hide();
+        ui->drum_5->hide();
+        ui->drum_6->hide();
+        ui->drum_7->hide();
+        ui->drum_0->setGeometry(initX,y,size,size);
+        ui->drum_1->setGeometry(initX,y,size,size);
+        ui->drum_2->setGeometry(initX,y,size,size);
+        ui->drum_3->setGeometry(initX,y,size,size);
+        ui->drum_4->setGeometry(initX,y,size,size);
+        ui->drum_5->setGeometry(initX,y,size,size);
+        ui->drum_6->setGeometry(initX,y,size,size);
+        ui->drum_7->setGeometry(initX,y,size,size);
+
+        /*for(int i=0; i<5; i++)
+        {
+            graphIndex[i]=1;
+            correct[i]=false;
+        }
+        for(int i=5; i<9; i++)
+        {
+            graphIndex[i]=2;
+            correct[i]=false;
+        }*/
+
+
+        drumTimer_0->stop();
+        drumTimer_1->stop();
+        drumTimer_2->stop();
+        drumTimer_3->stop();
+        drumTimer_4->stop();
+        drumTimer_5->stop();
+        drumTimer_6->stop();
+        drumTimer_7->stop();
     }
 }
 
-void MainWindow::keyPressEvent(QKeyEvent * event)
+void MainWindow::keyPressEvent(QKeyEvent *event)
 {
     if(event->key() == Qt::Key_F )
     {
-        if(graphIndex[0]==1 || correct[0]==false || arrayX[0]<=15 || arrayX[0]>=0)
+        if(ui->drum_0->x()<=25 || ui->drum_0->x()>=0)
         {
-            correct[0]=true;
+            ui->drum_0->hide();
             score++;
+            ui->scoreNum->setText(QString::number(score));
+
         }
-        else if(graphIndex[1]==1 || correct[1]==false || arrayX[1]<=15 || arrayX[1]>=0)
+        else if(ui->drum_1->x()<=25 || ui->drum_1->x()>=0)
         {
-            correct[1]=true;
+            ui->drum_1->hide();
             score++;
+            ui->scoreNum->setText(QString::number(score));
         }
-        else if(graphIndex[2]==1 || correct[2]==false || arrayX[2]<=15 || arrayX[2]>=0)
+        else if(ui->drum_2->x()<=25 || ui->drum_2->x()>=0)
         {
-            correct[2]=true;
+            ui->drum_2->hide();
             score++;
+            ui->scoreNum->setText(QString::number(score));
         }
-        else if(graphIndex[3]==1 || correct[3]==false || arrayX[3]<=15 || arrayX[3]>=0)
+        else if(ui->drum_3->x()<=25 || ui->drum_3->x()>=0)
         {
-            correct[3]=true;
+            ui->drum_3->hide();
             score++;
+            ui->scoreNum->setText(QString::number(score));
         }
-        else if(graphIndex[4]==1 || correct[4]==false || arrayX[4]<=15 || arrayX[4]>=0)
-        {
-            correct[4]=true;
-            score++;
-        }
-        else if(graphIndex[5]==1 || correct[5]==false || arrayX[5]<=15 || arrayX[5]>=0)
-        {
-            correct[5]=true;
-            score++;
-        }
-        else if(graphIndex[6]==1 || correct[6]==false || arrayX[6]<=15 || arrayX[6]>=0)
-        {
-            correct[6]=true;
-            score++;
-        }
-        else if(graphIndex[7]==1 || correct[7]==false || arrayX[7]<=15 || arrayX[7]>=0)
-        {
-            correct[7]=true;
-            score++;
-        }
-        else if(graphIndex[8]==1 || correct[8]==false || arrayX[8]<=15 || arrayX[8]>=0)
-        {
-            correct[8]=true;
-            score++;
-        }
+
     }
     else if(event->key() == Qt::Key_J)
     {
-        if(graphIndex[0]==2 || correct[0]==false || arrayX[0]<=15 || arrayX[0]>=0)
+
+        if(ui->drum_4->x()<=25 || ui->drum_4->x()>=0)
         {
-            correct[0]=true;
+            ui->drum_4->hide();
             score++;
+            ui->scoreNum->setText(QString::number(score));
         }
-        else if(graphIndex[1]==2 || correct[1]==false || arrayX[1]<=15 || arrayX[1]>=0)
+        else if(ui->drum_5->x()<=25 || ui->drum_5->x()>=0)
         {
-            correct[1]=true;
+            ui->drum_5->hide();
             score++;
+            ui->scoreNum->setText(QString::number(score));
+
         }
-        else if(graphIndex[2]==2 || correct[2]==false || arrayX[2]<=15 || arrayX[2]>=0)
+        else if(ui->drum_6->x()<=25 || ui->drum_6->x()>=0)
         {
-            correct[2]=true;
+            ui->drum_6->hide();
             score++;
+            ui->scoreNum->setText(QString::number(score));
         }
-        else if(graphIndex[3]==2 || correct[3]==false || arrayX[3]<=15 || arrayX[3]>=0)
+        else if(ui->drum_7->x()<=25 || ui->drum_7->x()>=0)
         {
-            correct[3]=true;
+            ui->drum_7->hide();
             score++;
-        }
-        else if(graphIndex[4]==2 || correct[4]==false || arrayX[4]<=15 || arrayX[4]>=0)
-        {
-            correct[4]=true;
-            score++;
-        }
-        else if(graphIndex[5]==2 || correct[5]==false || arrayX[5]<=15 || arrayX[5]>=0)
-        {
-            correct[5]=true;
-            score++;
-        }
-        else if(graphIndex[6]==2 || correct[6]==false || arrayX[6]<=15 || arrayX[6]>=0)
-        {
-            correct[6]=true;
-            score++;
-        }
-        else if(graphIndex[7]==2 || correct[7]==false || arrayX[7]<=15 || arrayX[7]>=0)
-        {
-            correct[7]=true;
-            score++;
-        }
-        else if(graphIndex[8]==2 || correct[8]==false || arrayX[8]<=15 || arrayX[8]>=0)
-        {
-            correct[8]=true;
-            score++;
+            ui->scoreNum->setText(QString::number(score));
         }
     }
 }
 
-void MainWindow::drum()
+/*void MainWindow::drum()
 {
     QTime time = QTime::currentTime();
     qsrand((uint)time.msec());
-    /*arrayX[0]=500;
-    for(int i=1; i<9; i++)
+
+    qrand();
+    if(qrand()%8==0)
     {
-        qrand();
-        arrayX[i]=arrayX[i-1]+100+R%200;
-        correct[i]=false;
+        Index[i]=1;
     }
-    for(int i=0; i<9; i++)
+    else if(qrand()%8==1)
     {
-        qrand();
-        if(qrand()%2==1)
-        {
-            item[i] = new QGraphicsPixmapItem(QPixmap(":/pictures/紅鼓.png"));
-            graphIndex[i]=1;
-        }
-        else if(qrand()%2==0)
-        {
-            item[i] = new QGraphicsPixmapItem(QPixmap(":/pictures/藍鼓.png"));
-            graphIndex[i]=2;
-        }
-        item[i]->setScale(1.0);
-        item[i]->setPos(arrayX[i],90);
-    }*/
+        Index[i]=1;
+    }
+    else if(qrand()%8==2)
+    {
+        Index[i]=1;
+    }
+    else if(qrand()%8==3)
+    {
+        Index[i]=1;
+    }
+    else if(qrand()%8==4)
+    {
+        Index[i]=1;
+    }
+    else if(qrand()%8==5)
+    {
+        Index[i]=1;
+    }
+    else if(qrand()%8==6)
+    {
+        Index[i]=1;
+    }
+    else if(qrand()%8==7)
+    {
+        Index[i]=1;
+    }
 
-}
+}*/
 
 
-void MainWindow::animaMove()
+/*void MainWindow::animaMove()
 {
-    /*for(int i=0; i<9; i++)
+    for(int i=0; i<9; i++)
     {
         arrayX[i]=arrayX[i]-step;
         item[i]->setPos(arrayX[i],90);
@@ -227,5 +260,5 @@ void MainWindow::animaMove()
     if(arrayX[8]<(-50))
     {
         drum();
-    }*/
-}
+    }
+}*/
